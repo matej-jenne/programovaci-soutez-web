@@ -41,6 +41,7 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
+// kontakti forma
 const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', async (e) => {
@@ -49,10 +50,10 @@ contactForm.addEventListener('submit', async (e) => {
     const formData = new FormData(contactForm);
 
     const data = {
-        jmeno: formData.get('jmeno'),
+        jmeno: formData.get('name'),
         email: formData.get('email'),
-        trida: formData.get('trida'),
-        zprava: formData.get('zprava')
+        trida: formData.get('class'),
+        zprava: formData.get('message')
     };
 
     try {
@@ -70,7 +71,7 @@ contactForm.addEventListener('submit', async (e) => {
         const result = await response.json();
 
         if (result.success) {
-            alert('Odesláno!');
+            alert('Přihláška byla odeslána!');
             contactForm.reset();
         }
 
