@@ -47,7 +47,12 @@ const status = document.getElementById('formStatus');
 
 form.addEventListener('submit', () => {
     status.textContent = "Opravdu chceš odeslat přihlášku? Kliknutím na "OK" ji odešleš.";
+
     
+        setTimeout(() => {
+            status.textContent = ".";
+            form.reset();
+        
         setTimeout(() => {
             status.textContent = "";
         }, 4000);
